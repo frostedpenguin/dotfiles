@@ -50,7 +50,7 @@ ruled.notification.connect_signal(
 				fg 					= '#ffffff',
 				margin 				= dpi(16),
 				position 			= 'top_right',
-				implicit_timeout	= 0
+				implicit_timeout	= 1
 			}
 		}
 
