@@ -15,12 +15,12 @@ lvim.format_on_save = true
 lvim.colorscheme = "material" vim.g.material_style = "palenight"
 -- lvim.colorscheme = "tokyonight"
 -- vim.g.tokyonight_style="night"
-vim.go.spelllang = "en_us, el2"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["cs"] = ":WhichKey z= <enter>"
+lvim.keys.normal_mode["$"] = "g_"
 -- add your own keymapping
 -- vim.g["copilot_no_tab_map"] = "v:true"
 -- vim.g["copilot_assume_mapped"] = "v:true"
@@ -52,6 +52,7 @@ lvim.keys.normal_mode["<f6>"] = ":set spell <enter>"
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["n"] = { "]s", "Next misspell" }
 lvim.builtin.which_key.mappings["N"] = { "[s", "Previous misspell" }
+lvim.builtin.which_key.mappings["S"] = { ":WhichKey z= <enter>", "spelling suggestions" }
 
 -- lvim.builtin.which_key.mappings["m"] = {
 --   name = "+Spelling",
@@ -179,6 +180,8 @@ lvim.plugins = {
 
 vim.g["vimtex_view_method"] = "zathura"
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
+lvim.autocommands.custom_groups = {
+  { "BufWinEnter", "*.tex", "set spelllang=el2,en_us" },
+  { "BufWinEnter", "*.tex", "set spell" },
+  { "BufWinEnter", "*.tex", "VimtexCompile" },
+}
