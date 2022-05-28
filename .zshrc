@@ -2,24 +2,24 @@ export ZSH="/home/panos/.oh-my-zsh"
 setopt extended_glob
 
 alias v='lvim';
+# alias mvscr="exa ~/Pictures/Screenshots/ --sort=oldest | head -1 | xargs -I '{}' mv ~/Pictures/Screenshots/'{}' ./"
 alias vtex='v *.tex'
 alias dsc='xset s off -dpms'
-alias zc='v ~/.config/zshrc/.zshrc';
+alias zc='v ~/.zshrc';
 alias st='shutdown 0';
 alias ac='v ~/.config/awesome/rc.lua'
 alias ack='v ~/.config/awesome/configuration/keys/global.lua'
 alias cl='clear'
+alias zr='source ~/.zshrc'
 dswap(){
   rm /home/panos/.local/share/nvim/swap/*$1*.swp
 }
-gcrr(){
-  NAME="$1";
-  git init;
-  gh repo create "$NAME" --private -y;
-  git add . ;
-  git commit -m "init";
-  git remote add origin https://github.com/frostedpenguin/ "$NAME" .git;
-  git push origin master;
+  shopt -s lastpipe
+mvsc(){
+  exa ~/Pictures/Screenshots/ --sort=oldest | head -1 | read PICNAME
+  echo $PICNAME
+  mv ~/Pictures/Screenshots/$PICNAME ./
+  mv ./$PICNAME ./$1.png
 }
 gacp(){
   if [ $# -eq 0 ]
@@ -31,13 +31,6 @@ gacp(){
   git add .
   git commit -m "'$MESSAGE'";
   git push origin HEAD;
-}
-zr(){
- ORIGIN=$PWD; 
- cd ~/.config/zshrc/;
- source .zshrc;
- gacp master;
- cd "$ORIGIN";
 }
 aal(){
   echo alias "$1"="'$2'" >> ~/.config/zshrc/.zshrc
@@ -141,7 +134,6 @@ if [[ ! -d "$ZSH/completions" || ! -f "$ZSH/completions/_gh" ]]; then
     echo "gh added completions: gh completion --shell zsh > $ZSH/completions/_gh"
 fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias hello='echo hello'
 alias vc='v /home/panos/.config/lvim/config.lua'
 alias cdvc='cd /home/panos/.config/nvim/lua/custom'
 alias yi='yay'

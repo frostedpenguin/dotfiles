@@ -1,5 +1,4 @@
 --[[ jlvim is the global options object
-fasd
 Linters should be
 filled in as strings with either
 a global executable or a path to
@@ -21,6 +20,9 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["cs"] = ":WhichKey z= <enter>"
 lvim.keys.normal_mode["$"] = "g_"
+lvim.keys.visual_mode["$"] = "g_"
+lvim.keys.normal_mode["V"] = "vg_"
+lvim.keys.normal_mode["vv"] = "^vg_"
 -- add your own keymapping
 -- vim.g["copilot_no_tab_map"] = "v:true"
 -- vim.g["copilot_assume_mapped"] = "v:true"
@@ -116,7 +118,7 @@ local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ command = "stylua", filetypes = { "lua" } },
   { command = "prettier",
-    filetypes = { "javascript", "typescript" },
+    filetypes = { "javascript", "typescript", "typescriptreact"  },
     extra_args = { "--single-quote", "true" },
  },
 	--   {
@@ -144,7 +146,7 @@ linters.setup({
 	{
 		command = "eslint",
 		---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-		filetypes = { "typescript", "javascript" },
+		filetypes = { "javascript", "typescript", "typescriptreact"  },
 	},
 })
 
@@ -163,9 +165,9 @@ lvim.plugins = {
 	{
 		"vim-test/vim-test",
 	},
-	{
-		"tpope/vim-eunuch",
-	},
+	-- {
+	-- 	"tpope/vim-eunuch",
+	-- },
 	{
 		"jalvesaq/Nvim-R",
 	},
@@ -176,9 +178,17 @@ lvim.plugins = {
 	{ "folke/lsp-colors.nvim" },
 	{ "marko-cerovac/material.nvim" },
 	{ "ggandor/lightspeed.nvim" },
+	{ "github/copilot.vim" },
 }
 
 vim.g["vimtex_view_method"] = "zathura"
+vim.g.copilot_no_tab_map = true
+lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.insert_mode[ "]]"]= "copilot#Accept('<CR>')" 
+lvim.keys.insert_mode[ "[["]= "copilot#Accept('<CR>')" 
+-- lvim.keys.insert_mode( "[[", 'copilot#Accept("<CR>")' )
+vim.g.copilot_assume_mapped = true
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
   { "BufWinEnter", "*.tex", "set spelllang=el2,en_us" },
