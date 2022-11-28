@@ -12,7 +12,7 @@ require('awful.autofocus')
 -- ░▀▀█░█▀█░█▀▀░█░░░█░░
 -- ░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀▀▀
 
-awful.util.shell = 'zsh'
+awful.util.shell = 'sh'
 
 -- ░▀█▀░█░█░█▀▀░█▄█░█▀▀
 -- ░░█░░█▀█░█▀▀░█░█░█▀▀

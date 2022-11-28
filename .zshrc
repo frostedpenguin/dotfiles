@@ -29,7 +29,7 @@ gacp(){
       MESSAGE="$1"
     fi
   git add .
-  git commit -m "'$MESSAGE'";
+  git commit -m "$MESSAGE";
   git push origin HEAD;
 }
 aal(){
@@ -146,6 +146,8 @@ alias pi='sudo pacman -S'
 alias lvim='/home/panos/.local/bin/lvim'
 alias icat='kitty +kitten icat'
 alias auebtex='cp -r ~/Documents/aueb_tex_template/* ./'
+alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.11.1-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
 # alias f='find . -name '
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#50fa7b,underline"
 alias config='/usr/bin/git --git-dir=/home/panos/.cfg/ --work-tree=/home/panos'
+source /usr/share/nvm/init-nvm.sh

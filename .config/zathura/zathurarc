@@ -1,37 +1,37 @@
 set selection-clipboard clipboard
 g:vimtex_view_forward_search_on_start
 set completion-group-bg         "#282828"
-set completion-group-fg         "#ebdbb2"
+set completion-group-fg         "#e3c168"
 set completion-bg               "#282828"
-set completion-fg               "#ebdbb2"
+set completion-fg               "#e3c168"
 set completion-highlight-bg     "#458588"
-set completion-highlight-fg     "#ebdbb2"
+set completion-highlight-fg     "#e3c168"
 
 set notification-error-bg       "#3c3836"
-set notification-error-fg       "#ebdbb2"
+set notification-error-fg       "#e3c168"
 set notification-warning-bg     "#3c3836"
-set notification-warning-fg     "#ebdbb2"
+set notification-warning-fg     "#e3c168"
 set notification-bg             "#3c3836"
-set notification-fg             "#ebdbb2"
+set notification-fg             "#e3c168"
 
 set index-bg                    "#1d2021"
-set index-fg                    "#ebdbb2"
+set index-fg                    "#e3c168"
 set index-active-bg             "#282828"
-set index-active-fg             "#ebdbb2"
+set index-active-fg             "#e3c168"
 
-set highlight-active-color      "#ff00ff"
-set highlight-color             "#ff00ff"
+set highlight-active-color      "#e3c168"
+set highlight-color             "#e3c168"
 
 set inputbar-bg                 "#3c3836"
-set inputbar-fg                 "#ebdbb2"
+set inputbar-fg                 "#e3c168"
 
 set statusbar-bg                "#282828"
-set statusbar-fg                "#ebdbb2"
+set statusbar-fg                "#e3c168"
 
 set default-bg                  "#1d2021"
 set default-fg                  "#001512"
 set recolor-lightcolor          "#282828"
-set recolor-darkcolor           "#ebdbb2"
+set recolor-darkcolor           "#e3c168"
 
 set statusbar-h-padding 0
 set statusbar-v-padding 0
